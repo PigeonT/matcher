@@ -1,14 +1,14 @@
 import {ScrollView, StyleSheet, View} from "react-native";
 import {Avatar, ListItem} from "@rneui/themed";
-import globalStyles from "../globals/styles/global-styles";
+import globalStyles from "../../globals/styles/global-styles";
 import {useEffect, useState} from "react";
-import userService from '../services/users/UserService';
-import {User} from "../models/User";
+import userService from '../../services/users/UserService';
+import {User} from "../../models/User";
 
 const styles = StyleSheet.create({
     ...globalStyles
 });
-const UserListScreen = () => {
+const UserListScreen = (props) => {
     const [userList, setUserList] = useState([]);
     useEffect(() => {
         (async () => {
@@ -23,6 +23,7 @@ const UserListScreen = () => {
                     userList.map((l, i) => (
                         <ListItem
                             onPress={() => {
+                                props.navigation.navigate('UserMessageScreen')
                             }}
                             key={i}
                             bottomDivider>
@@ -39,7 +40,6 @@ const UserListScreen = () => {
                 }
             </ScrollView>
         </View>
-
     );
 };
 export default UserListScreen;

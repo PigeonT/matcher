@@ -2,7 +2,12 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import UserMessageScreen from "./user-screen/UserMessageScreen";
 import UserListScreen from "./user-screen/UserListScreen";
 
-const Stack = createNativeStackNavigator();
+export type UserScreenStack = {
+    UserListScreen: typeof UserListScreen;
+    UserMessageScreen: typeof UserMessageScreen;
+};
+
+const Stack = createNativeStackNavigator<UserScreenStack>();
 const UserScreen = () => {
     return (
         <Stack.Navigator

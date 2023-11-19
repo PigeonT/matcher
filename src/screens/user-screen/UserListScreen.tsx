@@ -4,11 +4,14 @@ import globalStyles from "../../globals/styles/global-styles";
 import {useEffect, useState} from "react";
 import userService from '../../services/users/UserService';
 import {User} from "../../models/User";
+import {StackScreenProps} from "@react-navigation/stack";
+import {UserScreenStack} from "../UserScreen";
 
 const styles = StyleSheet.create({
     ...globalStyles
 });
-const UserListScreen = (props) => {
+type Props = StackScreenProps<UserScreenStack, 'UserListScreen'>;
+const UserListScreen = (props: Props) => {
     const [userList, setUserList] = useState([]);
     useEffect(() => {
         (async () => {

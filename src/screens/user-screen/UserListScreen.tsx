@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 });
 type Props = StackScreenProps<UserScreenStack, 'UserListScreen'>;
 const UserListScreen = (props: Props) => {
-    const [userList, setUserList] = useState([]);
+    const [userList, setUserList] = useState([] as Array<User>);
     useEffect(() => {
         (async () => {
             const users: Array<User> = (await userService.fetchUserList()).data.users;
